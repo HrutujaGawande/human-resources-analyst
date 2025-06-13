@@ -10,17 +10,48 @@ This project explores HR analytics using Tableau with a synthetic dataset. Key d
 - Satisfaction & Engagement
 
 ## 📁 Folder Structure
-- `data/`: Contains the HR dataset
-- `tableau/`: Tableau dashboard file
-- `images/`: Screenshots of the dashboards
-- `docs/`: Project documentation/report
+human-resources-analyst/
+│
+├── data/                 # HRDataset_v14.csv
+├── powerbi/              # HR_Analytics_Dashboard.pbix
+├── images/               # Dashboard screenshots
+├── docs/                 # Project report in Markdown or PDF
+└── README.md
 
-## 🔧 Tools Used
-- PowerBI Desktop
-- GitHub for version control and documentation
+---
 
-## 🔗 Dataset Source
-[Download HRDataset_v14.csv](https://drive.google.com/file/d/1jBaXtUHZftaCa-JPLF1g6PU2-CKR2dEl/view)
+## 🔧 Tools & Skills Used
+- **Tool**: Power BI Desktop
+- **Skills**: Data Modeling, DAX, Data Visualization, HR Analytics
+- **Project Management**: GitHub Projects (Agile board), Issues, Milestones
 
-## ✨ Dashboard Preview
-_Add screenshots here_
+---
+
+## 📊 Dashboard Highlights
+
+> Add screenshots under `/images` folder and link them here when ready.
+
+---
+
+
+## 📂 Dataset Source
+
+- **Dataset**: [HRDataset_v14.csv](https://drive.google.com/file/d/1jBaXtUHZftaCa-JPLF1g6PU2-CKR2dEl/view)
+- **Authors**: Dr. Carla Patalano & Dr. Rich Huebner
+- **License**: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+---
+
+## ✨ Future Enhancements
+- Add predictive analytics with Python (HR attrition)
+- Use Power BI bookmarks for interactivity
+- Automate refresh with Power BI Service
+
+---
+
+## 👩‍💻 Author
+**Hrutuja Gawande**  
+Business Analytics Intern  
+Unified Mentors Pvt. Ltd.
+
+
