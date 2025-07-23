@@ -1,0 +1,10 @@
+| KPI                          | DAX Measure                                                                                                                                                                  |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Total Employees**          | `Total Employees = COUNT('HR'[Employee_Name])`                                                                                                                               |
+| **Active Employees (%)**     | `Active Employees = CALCULATE(COUNT('HR'[Employee_Name]), 'HR'[DateofTermination] = BLANK())`<br> `Active % = DIVIDE([Active Employees], [Total Employees])`                 |
+| **Terminated Employees (%)** | `Terminated Employees = CALCULATE(COUNT('HR'[Employee_Name]), NOT(ISBLANK('HR'[DateofTermination])))`<br> `Terminated % = DIVIDE([Terminated Employees], [Total Employees])` |
+| **Avg. Tenure (Days)**       | See DAX below                                                                                                                                                                |
+| **Avg. Performance Score**   | `Avg Performance = AVERAGE('HR'[PerformanceScore])`                                                                                                                          |
+| **Avg. Satisfaction Score**  | `Avg Satisfaction = AVERAGE('HR'[EmpSatisfaction])`                                                                                                                          |
+| **Attrition Rate**           | See advanced formula below                                                                                                                                                   |
+| **Absenteeism Rate (%)**     | `Absenteeism = AVERAGE('HR'[Absences])` or normalized by headcount                                                                                                           |
