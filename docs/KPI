@@ -1,10 +1,55 @@
-| KPI                          | DAX Measure                                                                                                                                                                  |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Total Employees**          | `Total Employees = COUNT('HR'[Employee_Name])`                                                                                                                               |
-| **Active Employees (%)**     | `Active Employees = CALCULATE(COUNT('HR'[Employee_Name]), 'HR'[DateofTermination] = BLANK())`<br> `Active % = DIVIDE([Active Employees], [Total Employees])`                 |
-| **Terminated Employees (%)** | `Terminated Employees = CALCULATE(COUNT('HR'[Employee_Name]), NOT(ISBLANK('HR'[DateofTermination])))`<br> `Terminated % = DIVIDE([Terminated Employees], [Total Employees])` |
-| **Avg. Tenure (Days)**       | See DAX below                                                                                                                                                                |
-| **Avg. Performance Score**   | `Avg Performance = AVERAGE('HR'[PerformanceScore])`                                                                                                                          |
-| **Avg. Satisfaction Score**  | `Avg Satisfaction = AVERAGE('HR'[EmpSatisfaction])`                                                                                                                          |
-| **Attrition Rate**           | See advanced formula below                                                                                                                                                   |
-| **Absenteeism Rate (%)**     | `Absenteeism = AVERAGE('HR'[Absences])` or normalized by headcount                                                                                                           |
+DAX Measures for Executive Summary
+
+1. Total Employees
+Total Employees = COUNTROWS('HRDataset_v14')
+
+2. Active Employees and Terminated Employees
+Active Employees = 
+CALCULATE(COUNTROWS('HRDataset_v14'), 
+    ISBLANK('HRDataset_v14'[DateofTermination])
+)
+
+Terminated Employees = 
+CALCULATE(COUNTROWS('HRDataset_v14'), 
+    NOT ISBLANK('HRDataset_v14'[DateofTermination])
+)
+
+3. Active and Terminated Percentages
+Active % = 
+DIVIDE([Active Employees], [Total Employees])
+
+Terminated % = 
+DIVIDE([Terminated Employees], [Total Employees])
+
+4. Tenure (in Days) 
+
+– Calculated Column
+Tenure = 
+DATEDIFF(
+    'HRDataset_v14'[DateofHire], 
+    IF(ISBLANK('HRDataset_v14'[DateofTermination]), TODAY(), 'HRDataset_v14'[DateofTermination]),
+    DAY
+)
+
+-Measure
+Avg Tenure = AVERAGE('HRDataset_v14'[Tenure])
+
+5. Average Performance Score
+Avg Performance Score = 
+AVERAGE('HRDataset_v14'[PerformanceScore])
+
+6. Average Satisfaction Score
+Avg Satisfaction Score = 
+AVERAGE('HRDataset_v14'[EmpSatisfaction])
+
+7. Attrition Rate
+Attrition Rate (%) = 
+DIVIDE(
+    [Terminated Employees],
+    [Total Employees]
+)
+
+8. Absenteeism Rate
+Absenteeism Rate = 
+AVERAGE('HRDataset_v14'[Absences])
+
