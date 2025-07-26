@@ -1,6 +1,6 @@
-# DAX Measures for Executive Summary
+DAX Measures for Executive Summary
 
-*1. Total Employees*
+1. Total Employees
 Total Employees = COUNTROWS('HRDataset_v14')
 
 2. Active Employees and Terminated Employees
